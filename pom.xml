@@ -28,7 +28,7 @@
             <scope>test</scope>
         </dependency>
 
-        <!--		mysql-->
+        <!--	begin	mysql-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -40,7 +40,15 @@
             <artifactId>mybatis-spring-boot-starter</artifactId>
             <version>2.2.0</version>
         </dependency>
-        <!--		mysql-->
+        <!--	end	mysql-->
+
+        <!--begin 工具类-->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.8.3</version>
+        </dependency>
+        <!--end 工具类-->
 
     </dependencies>
 

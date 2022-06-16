@@ -1,14 +1,20 @@
 package com.example.cute.kind.ini;
 
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.beans.factory.BeanNotOfRequiredTypeException;
 import org.springframework.boot.diagnostics.AbstractFailureAnalyzer;
 import org.springframework.boot.diagnostics.FailureAnalysis;
+import org.springframework.context.EnvironmentAware;
+import org.springframework.core.env.Environment;
 
 /**
  * @author gu
  * @date 2022/6/16
  */
-public class ProjectConstraintViolationFailureAnalyzer extends AbstractFailureAnalyzer<BeanNotOfRequiredTypeException> {
+public class ProjectConstraintViolationFailureAnalyzer extends AbstractFailureAnalyzer<BeanNotOfRequiredTypeException>
+        implements BeanFactoryAware, EnvironmentAware {
     @Override
     protected FailureAnalysis analyze(Throwable rootFailure, BeanNotOfRequiredTypeException ex) {
 
@@ -19,6 +25,17 @@ public class ProjectConstraintViolationFailureAnalyzer extends AbstractFailureAn
                 ex.getBeanName(),
                 ex.getRequiredType().getName(),
                 ex.getActualType().getName());
+        setBeanFactory(null);
         return new FailureAnalysis(desc, desc, ex);
+    }
+
+    @Override
+    public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
+        System.out.println("aaa");
+    }
+
+    @Override
+    public void setEnvironment(Environment environment) {
+        System.out.println("aaa");
     }
 }
