@@ -1,5 +1,6 @@
 package com.example.cute.kind.ini;
 
+import cn.hutool.json.JSONUtil;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
@@ -25,8 +26,9 @@ public class ProjectConstraintViolationFailureAnalyzer extends AbstractFailureAn
                 ex.getBeanName(),
                 ex.getRequiredType().getName(),
                 ex.getActualType().getName());
-        setBeanFactory(null);
-        return new FailureAnalysis(desc, desc, ex);
+        FailureAnalysis failureAnalysis=new FailureAnalysis(desc, desc, ex);
+        JSONUtil.toJsonStr(failureAnalysis);
+        return failureAnalysis;
     }
 
     @Override
