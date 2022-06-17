@@ -11,10 +11,10 @@ import java.io.PrintWriter;
  * @author gu
  * @date 2022/6/17
  */
-@WebServlet(urlPatterns = "/country1/*", loadOnStartup = 1)
-public class HelloStateServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException{
+@WebServlet(urlPatterns = "/TestAnnServlet/*", loadOnStartup = 1)
+public class TestAnnServlet extends HttpServlet {
+
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         System.out.println("HelloCountryServlet");
         doGet(request,response);
         System.out.println("HelloCountryServlet");
@@ -23,6 +23,6 @@ public class HelloStateServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        out.println("<h3>Hello India!</h3>");
+        out.println("<h3>TestAnnServlet</h3>");
     }
 }
