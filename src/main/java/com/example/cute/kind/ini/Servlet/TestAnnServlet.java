@@ -11,7 +11,7 @@ import java.io.PrintWriter;
  * @author gu
  * @date 2022/6/17
  */
-@WebServlet(urlPatterns = "/TestAnnServlet/*", loadOnStartup = 1)
+@WebServlet(urlPatterns = "/TestAnnServlet111/*", loadOnStartup = 1)
 public class TestAnnServlet extends HttpServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {

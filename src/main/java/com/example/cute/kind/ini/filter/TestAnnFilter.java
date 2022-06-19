@@ -1,30 +1,27 @@
 package com.example.cute.kind.ini.filter;
 
-import org.springframework.core.annotation.Order;
-import org.springframework.stereotype.Component;
-
 import javax.servlet.*;
+import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 /**
  * @author gu
- * @date 2022/6/16
+ * @date 2022/6/19
  */
-@Component
-@Order(2)
+@WebFilter(urlPatterns = "/aaa/*")
+public class TestAnnFilter implements Filter {
 
-public class TransactionFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request,
                          ServletResponse response,
                          FilterChain chain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) request;
         System.out.println(
-                "Starting a transaction1 for req : {}");
+                "Starting a TestAnnFilterTestAnnFilter for req : {}");
 
         chain.doFilter(request, response);
         System.out.println(
-                "Committing a transaction1 for req : {}");
+                "Committing a TestAnnFilterTestAnnFilter for req : {}");
     }
 }

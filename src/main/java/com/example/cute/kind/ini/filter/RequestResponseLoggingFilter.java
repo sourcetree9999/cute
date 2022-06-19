@@ -13,7 +13,7 @@ import java.io.IOException;
  * @date 2022/6/16
  */
 @Component
-@Order(2)
+@Order(1)
 public class RequestResponseLoggingFilter implements Filter {
 
     @Override
@@ -25,11 +25,11 @@ public class RequestResponseLoggingFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse res = (HttpServletResponse) response;
         System.out.println(
-                "Starting a transaction for req : {}");
+                "Starting a transaction2 for req : {}");
 
         chain.doFilter(request, response);
         System.out.println(
-                "Committing a transaction for req : {}");
+                "Committing a transaction 2for req : {}");
     }
 
     // other methods
